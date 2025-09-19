@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Prakash Rudavath - Contact Page</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-gray-100 to-indigo-100 flex items-center justify-center min-h-screen">
+<div class="bg-white shadow-xl rounded-2xl p-8 sm:p-10 w-11/12 sm:w-full max-w-md text-center border border-gray-200">
+<h1 class="text-3xl font-bold mb-6 text-gray-800">Sai Prakash Rudavath</h1>
+
+
+<!-- Buttons -->
+<div class="flex flex-col space-y-4">
+<a href="contact.vcf" download class="bg-green-700 text-white py-2 rounded-xl shadow hover:bg-green-800">Save Contact</a>
+<a href="https://www.linkedin.com/in/sai-prakash-rudavath-727031109/" target="_blank" class="bg-blue-700 text-white py-2 rounded-xl shadow hover:bg-blue-800">LinkedIn</a>
+<a href="https://www.instagram.com/saiprakash_rudavath/" target="_blank" class="bg-pink-600 text-white py-2 rounded-xl shadow hover:bg-pink-700">Instagram</a>
+</div>
+
+
+<!-- QR Codes -->
+<div class="mt-10">
+<h2 class="text-lg font-semibold mb-4 text-gray-700">Quick Access via QR Codes</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div>
+<canvas id="qrContact"></canvas>
+<p class="text-sm mt-2 text-gray-700">Save My Contact</p>
+</div>
+<div>
+<canvas id="qrLinkedIn"></canvas>
+<p class="text-sm mt-2 text-gray-700">Visit LinkedIn</p>
+</div>
+<div>
+<canvas id="qrInstagram"></canvas>
+<p class="text-sm mt-2 text-gray-700">Visit Instagram</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+// Generate QR codes
+QRCode.toCanvas(document.getElementById("qrLinkedIn"), "https://www.linkedin.com/in/sai-prakash-rudavath-727031109/", { width: 128 });
+QRCode.toCanvas(document.getElementById("qrInstagram"), "https://www.instagram.com/saiprakash_rudavath/", { width: 128 });
+// vCard QR code (for contact)
+const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Sai Prakash Rudavath\nTEL:+919052501906\nEMAIL:rudavathsaiprakash26@gmail.com\nURL:https://www.linkedin.com/in/sai-prakash-rudavath-727031109/\nURL:https://www.instagram.com/saiprakash_rudavath/\nEND:VCARD`;
+QRCode.toCanvas(document.getElementById("qrContact"), vcardData, { width: 128 });
+</script>
+</body>
+</html>
